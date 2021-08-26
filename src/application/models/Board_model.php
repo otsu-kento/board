@@ -19,7 +19,7 @@ class Board_model extends CI_Model {
     {
         return $this->db->where('id', $id)
             ->select('id, view_name, message')
-            ->get('ci_board')
+            ->get('message')
             ->row_array();
     }
 
@@ -33,7 +33,7 @@ class Board_model extends CI_Model {
     {
         if (empty($limit)) { $this->db->limit($limit); }
         return $this->db->order_by('post_date', 'ASC')
-            ->get('ci_board')
+            ->get('message')
             ->result_array();
     }
 
@@ -45,7 +45,7 @@ class Board_model extends CI_Model {
      */
     public function insert($data)
     {
-        return $this->db->insert('ci_board', $data);
+        return $this->db->insert('message', $data);
     }
 
     /**
@@ -58,7 +58,7 @@ class Board_model extends CI_Model {
     public function update_row($id, $data)
     {
         return $this->db->where('id', $id)
-            ->update('ci_board', $data);
+            ->update('message', $data);
     }
 
     /**
@@ -70,6 +70,6 @@ class Board_model extends CI_Model {
     public function delete_row($id)
     {
         return $this->db->where('id', $id)
-            ->delete('ci_board');
+            ->delete('message');
     }
 }
