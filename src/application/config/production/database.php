@@ -73,12 +73,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// heroku database
+$url = getenv('CLEARDB_DATABASE_URL');
+$parts = parse_url($url);
+$hostname = $parts['host'];
+$username = $parts['user'];
+$password = $parts['pass'];
+$database = substr($parts['path'], 1);
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'test',
-	'password' => 'drink1998',
-	'database' => 'ci',
+	'hostname' => $hostname,
+	'username' => $username,
+	'password' => $password,
+	'database' => $database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
