@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `message`
 --
 
-CREATE TABLE `message` (
+CREATE TABLE IF NOT EXISTS `message` (
     `id` int(11) NOT NULL COMMENT 'id',
     `view_name` varchar(100) NOT NULL COMMENT '表示名',
     `message` text NOT NULL COMMENT '一言メッセージ',
@@ -46,3 +46,13 @@ ALTER TABLE `message`
 --
 ALTER TABLE `message`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=31;
+
+-- for session
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+        `id` varchar(40) NOT NULL,
+        `ip_address` varchar(45) NOT NULL,
+        `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+        `data` blob NOT NULL,
+        KEY `ci_sessions_timestamp` (`timestamp`)
+);
