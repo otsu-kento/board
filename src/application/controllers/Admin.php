@@ -208,13 +208,13 @@ class Admin extends CI_Controller
     /**
      * 掲示板の書き込みデータをCSV出力
      * 
-     * @return binary
+     * @return 
      */
     public function download_csv()
     {
         header("Content-Type: application/octet-stream");
         header("Content-Disposition: attachment; filename=メッセージデータ.csv");
-        header("Content-Transfer-Encoding: binary");
+        // header("Content-Transfer-Encoding: binary");
 
         $limit = null;
 
@@ -236,7 +236,7 @@ class Admin extends CI_Controller
             $csv_data .= '"' . $value['id'] . '","' . $value['view_name'] . '","' . $value['message'] . '","' . $value['post_date'] . "\"\n";
         }
 
-        $csv_data = mb_convert_encoding($csv_data, "SJIS", "UTF-8");
+        // $csv_data = mb_convert_encoding($csv_data, "SJIS", "UTF-8");
         echo $csv_data;
         // exit();
     }
