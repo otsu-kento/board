@@ -238,7 +238,7 @@ class Admin extends CI_Controller
 
         $csv_data = mb_convert_encoding($csv_data, "SJIS", "UTF-8");
         echo $csv_data;
-        exit();
+        // exit();
     }
 
     /**

@@ -15,7 +15,7 @@
     <?php endif; ?>
     <section>
         <div class="form-wrapper" style="display: flex;">
-            <form method="get" action="<?= base_url("admin/download_csv")  ?>">
+            <form method="get" action="<?= base_url("admin/download_csv") ?>">
                 <select name="limit">
                     <option value="">全て</option>
                     <option value="10">10件</option>
